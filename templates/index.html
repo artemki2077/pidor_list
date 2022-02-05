@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+	<title>Top Pidors</title>
+</head>
+<body>
+	<script src="{{url_for('static',filename='script.js')}}"></script>
+	<h1 class="title">Список пидорасов 🏳️‍🌈</h1>
+	<span id="leadeboard">
+		{% for n, i in enumerate(users, 1) %}
+		<h2 class="name"><a class="link" href="/data/{{i['who']}}">{{n}}. {{i["who"]}} </a><span class="points">{{i["points"]}}</span></h2>
+		{% endfor %}
+	</span>
+</body>
+</html>
+	

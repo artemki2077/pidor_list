@@ -1,0 +1,59 @@
+body {
+		  font-family: system-ui;
+		  background: #282A35;
+		  color: white;
+		  text-align: center;
+}
+.title{
+	font-size: 8vw;
+	color: #A1E7FB;
+	margin: 100px;
+}
+.title2{
+	font-size: 5vw;
+	color: #A1E7FB;
+	width: 100vw;
+}
+.name{
+	font-size: 2vmax;
+	color: #E781C3;
+}
+.points{
+	padding: 30px;
+	color: #B795F3;
+}
+.div_chart{
+	align-items: center;
+}
+.link{
+	text-decoration: none;
+	font-size: 2vmax;
+	color: #E781C3;
+}
+canvas{
+	margin-left: 15vw;
+	margin-right: 15vw;
+}
+table {
+   border-collapse: collapse;
+	border-radius: 13;
+   border: 1px solid #B795F3;
+}
+th, td {
+   border: 1px solid #B795F3;
+	border-radius: 13;
+}
+caption {
+  font-size: 4vmax;
+	margin: 20px;
+}
+table {
+   border-collapse: collapse;
+	 width: 60vw;
+	margin-left: 20vw;
+	margin-right: 20vw;
+	margin-top: 40px;
+}
+td{
+  height: 3vh;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+	<title>chart about {{Name}}</title>
+</head>
+<body>
+	<h1 class="title2">Статистика {{Name}} 📈</h1>
+	<canvas id="chart"></canvas>
+	<table>
+		<caption>
+			Все грехи {{Name}}
+		</caption>
+		<tr>
+         <th>Когда</th>
+         <th>За что</th>
+         <th>Сколько баллов</th>
+      </tr>
+		{% for i in data%}
+			<tr>
+			  <td>{{dt.datetime.strptime(i["time"], '%Y-%m-%dT%H:%M:%S.%f%z').strftime('%d.%m.%Y, %H:%M')}}</td>
+			  <td>{{i["thing"]}}</td>
+			  <td>{{i["points"]}} б</td>
+			</tr>	
+		{% endfor %}
+	</table>
+	<script>
+		var Name = "{{Name}}";
+		var Times = [];
+		var Point = {{points}};
+		{% for i in times%}
+		var dat = new Date("{{i}}"); 
+		Times.push(dat.toLocaleString().slice(0, -3));
+		{% endfor %}
+
+		const labels = Times;
+	
+	  const data = {
+	    labels: labels,
+	    datasets: [{
+	      label: "баллы: {{Name}}",
+	      backgroundColor: 'transperent',
+	      borderColor: '#E781C3',
+	      data: Point,
+	    }]
+	  };
+	
+	  const config = {
+	    type: 'line',
+	    data: data,
+	    options: {}
+	  };
+		const myChart = new Chart(
+	    document.getElementById('chart'),
+	    config
+	  );
+		myChart.canvas.parentNode.style.height = '30vh';
+		myChart.canvas.parentNode.style.width = '70vw';
+	</script>
+</body>
+</html>
