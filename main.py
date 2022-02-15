@@ -19,7 +19,6 @@ def deagramm(Name):
 	for i in points:
 		n += i
 		h.append(n)
-	print(times)
 	return render_template("chart.html", enumerate=enumerate, dt=dt, Name=Name, data=data, times=times, points=h)
 
 app.run(host='0.0.0.0', port=8080)
