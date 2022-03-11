@@ -22,11 +22,19 @@
          <th>Сколько баллов</th>
       </tr>
 		{% for i in data%}
-			<tr>
-			  <td>{{dt.datetime.strptime(i["time"], '%Y-%m-%dT%H:%M:%S.%f%z').strftime('%d.%m.%Y, %H:%M')}}</td>
-			  <td>{{i["thing"]}}</td>
-			  <td>{{i["points"]}} б</td>
-			</tr>	
+			{% if "http" not in  i["thing"]%}
+				<tr>
+				  <td>{{dt.datetime.strptime(i["time"], '%Y-%m-%dT%H:%M:%S.%f%z').strftime('%d.%m.%Y, %H:%M')}}</td>
+				  <td>{{i["thing"]}}</td>
+				  <td>{{i["points"]}} б</td>
+				</tr>	
+			{% else %}
+				<tr>
+				  <td>{{dt.datetime.strptime(i["time"], '%Y-%m-%dT%H:%M:%S.%f%z').strftime('%d.%m.%Y, %H:%M')}}</td>
+				  <td><img src="{{i['thing']}}" alt="ты лох"></td>
+				  <td>{{i["points"]}} б</td>
+				</tr>	
+			{% endif %}
 		{% endfor %}
 	</table>
 	<script>

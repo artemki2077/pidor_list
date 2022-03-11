@@ -57,3 +57,7 @@ table {
 td{
   height: 3vh;
 }
+img {
+    width: 20vw;
+    height: auto;
+}
